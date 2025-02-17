@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:27:10 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/17 10:28:20 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:36:03 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ int	main(void)
 {
 	PhoneBook	phoneBook;
 
-	phoneBook.printContacts();
 	return (0);
 }

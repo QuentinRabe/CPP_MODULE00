@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:20:43 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/17 10:27:11 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:47:31 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <iostream>
 #include <iomanip>
 
-Contact::Contact(std::string p1, std::string p2, std::string p3, std::string p4, std::string p5, bool p6, short p7) :
-firstName(p1), lastName(p2), nickname(p3), phoneNumber(p4), darkestSecret(p5), hasValue(p6), id(p7){}
+Contact::Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds, bool hv, short i) :
+firstName(fn), lastName(ln), nickname(nn), phoneNumber(pn), darkestSecret(ds), hasValue(hv), id(i){}
 
 Contact::Contact(void):
 firstName(""), lastName(""), nickname(""), phoneNumber("") , darkestSecret(""), hasValue(false){}
