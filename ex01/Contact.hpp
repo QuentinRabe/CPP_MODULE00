@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 07:13:44 by arabefam          #+#    #+#             */
+/*   Updated: 2025/02/17 09:24:36 by arabefam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
+# include <string>
+
+enum e_opt
+{
+	FIRSTNAME,
+	LASTNAME,
+	NICKNAME,
+	PHONENUMBER,
+	DARKESTSECRET
+};
+
+typedef enum e_opt	t_opt;
+
+class	Contact
+{
+	public:
+		Contact(std::string p1, std::string p2, std::string p3, std::string p4, std::string p5, bool p6);
+		Contact(void);
+		~Contact(void);
+		void		greeting(void) const;
+	private:
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickname;
+		std::string	_phoneNumber;
+		std::string	_darkestSecret;
+		bool		_hasValue;
+
+		void	_formatPrint(t_opt option, bool isLast) const;
+		bool	_getHasValue(void) const;
+};
+#endif
