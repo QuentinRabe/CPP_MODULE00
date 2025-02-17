@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:20:43 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/17 09:25:21 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:27:11 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 #include <iostream>
 #include <iomanip>
 
-Contact::Contact(std::string p1, std::string p2, std::string p3, std::string p4, std::string p5, bool p6) :
-_firstName(p1), _lastName(p2), _nickname(p3), _phoneNumber(p4) ,_darkestSecret(p5), _hasValue(p6){}
+Contact::Contact(std::string p1, std::string p2, std::string p3, std::string p4, std::string p5, bool p6, short p7) :
+firstName(p1), lastName(p2), nickname(p3), phoneNumber(p4), darkestSecret(p5), hasValue(p6), id(p7){}
 
 Contact::Contact(void):
-_firstName(""), _lastName(""), _nickname(""), _phoneNumber("") ,_darkestSecret(""), _hasValue(false){}
+firstName(""), lastName(""), nickname(""), phoneNumber("") , darkestSecret(""), hasValue(false){}
 
-Contact::~Contact(void)
-{
-	std::cout << "Constructor called" << std::endl;
-}
+Contact::~Contact(void)  {}
 
 void	Contact::greeting(void) const
 {
@@ -39,19 +36,19 @@ void	Contact::_formatPrint(t_opt option, bool isLast) const
 
 	switch (option) {
 		case FIRSTNAME :
-			strValue = this->_firstName;
+			strValue = this->firstName;
 			break;
 		case LASTNAME :
-			strValue = this->_lastName;
+			strValue = this->lastName;
 			break;
 		case NICKNAME :
-			strValue = this->_nickname;
+			strValue = this->nickname;
 			break;
 		case PHONENUMBER :
-			strValue = this->_phoneNumber;
+			strValue = this->phoneNumber;
 			break;
 		case DARKESTSECRET :
-			strValue = this->_darkestSecret;
+			strValue = this->darkestSecret;
 			break;
 		default:
 			break;
@@ -69,5 +66,5 @@ void	Contact::_formatPrint(t_opt option, bool isLast) const
 
 bool	Contact::_getHasValue(void) const
 {
-	return this->_hasValue;
+	return this->hasValue;
 }
