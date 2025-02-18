@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Type.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 08:17:38 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/18 21:50:53 by arabefam         ###   ########.fr       */
+/*   Created: 2025/02/18 21:29:52 by arabefam          #+#    #+#             */
+/*   Updated: 2025/02/18 21:30:16 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef TYPE_H
+# define TYPE_H
 
-# include "Contact.hpp"
-# include <string>
-# include "Type.hpp"
-
-class	PhoneBook
+enum e_opt
 {
-	public:
-		PhoneBook(void);
-		void	add(t_opt opt, std::string str);
-		short	getId(void) const;
-	private:
-		Contact	_arr[8];
-		short	_id;
+	FIRSTNAME,
+	LASTNAME,
+	NICKNAME,
+	PHONENUMBER,
+	DARKESTSECRET
 };
+
+typedef enum e_opt	t_opt;
 #endif

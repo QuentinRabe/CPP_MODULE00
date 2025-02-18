@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:13:44 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/17 10:43:26 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/02/18 21:30:38 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,7 @@
 # define CONTACT_HPP
 
 # include <string>
-
-enum e_opt
-{
-	FIRSTNAME,
-	LASTNAME,
-	NICKNAME,
-	PHONENUMBER,
-	DARKESTSECRET
-};
-
-typedef enum e_opt	t_opt;
+# include "Type.hpp"
 
 class	Contact
 {
