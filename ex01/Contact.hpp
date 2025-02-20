@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:13:44 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/18 21:30:38 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/02/20 13:44:56 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class	Contact
 		Contact(void);
 		~Contact(void);
 		void		greeting(void) const;
+		static void		formatPrint(std::string str, bool isLast);
 	private:
-		void	_formatPrint(t_opt option, bool isLast) const;
 		bool	_getHasValue(void) const;
 };
 #endif

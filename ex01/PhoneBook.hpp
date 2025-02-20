@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 08:17:38 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/18 21:50:53 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/02/20 13:03:11 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ class	PhoneBook
 {
 	public:
 		PhoneBook(void);
-		void	add(t_opt opt, std::string str);
+		void	askForInputs(t_opt opt, std::string msg);
 		short	getId(void) const;
+		void	search(void) const;
 	private:
+		void	_add(t_opt opt, std::string str);
 		Contact	_arr[8];
 		short	_id;
 };

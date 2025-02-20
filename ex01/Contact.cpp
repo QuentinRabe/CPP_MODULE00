@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -24,39 +25,15 @@ Contact::~Contact(void)  {}
 
 void	Contact::greeting(void) const
 {
-	_formatPrint(FIRSTNAME, false);
-	_formatPrint(LASTNAME, false);
-	_formatPrint(NICKNAME, false);
-	_formatPrint(PHONENUMBER, true);
+	std::cout << "Hello world" << std::endl;
 }
 
-void	Contact::_formatPrint(t_opt option, bool isLast) const
+void	Contact::formatPrint(std::string str, bool isLast)
 {
-	std::string	strValue = "";
-
-	switch (option) {
-		case FIRSTNAME :
-			strValue = this->firstName;
-			break;
-		case LASTNAME :
-			strValue = this->lastName;
-			break;
-		case NICKNAME :
-			strValue = this->nickname;
-			break;
-		case PHONENUMBER :
-			strValue = this->phoneNumber;
-			break;
-		case DARKESTSECRET :
-			strValue = this->darkestSecret;
-			break;
-		default:
-			break;
-	}
-	if (strValue.length() > 10)
-		std::cout << strValue.substr(0, 9) << ".";
+	if (str.length() > 10)
+		std::cout << std::setw(10) << str.substr(0, 9) + ".";
 	else
-		std::cout << strValue << std::setw(11 - strValue.length());
+		std::cout << std::setw(10) << std::left << str;
 	if (!isLast)
 		std::cout << "|";
 	else

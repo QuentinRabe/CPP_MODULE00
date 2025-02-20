@@ -6,47 +6,45 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:27:10 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/18 21:53:27 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/02/20 12:35:57y arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 
-static std::string	prompt(std::string message)
+static void	addingProcess(PhoneBook &phoneBook)
 {
-	std::string	result = "";
-
-	std::cout << message << ": ";
-	std::cin >> result;
-	return (result);
-}
-
-static void	askForInputs(PhoneBook phoneBook)
-{
-	std::string	input;
-
-	while (1)
-	{
-		std::cout << "Before adding contact, actual is id = " << phoneBook.getId() << std::endl;
-		input = prompt("Enter firstname");
-		phoneBook.add(FIRSTNAME, input);
-		input = prompt("Enter lastname");
-		phoneBook.add(LASTNAME, input);
-		input = prompt("Enter nickname");
-		phoneBook.add(NICKNAME, input);
-		input = prompt("Enter phonenumber");
-		phoneBook.add(PHONENUMBER, input);
-		input = prompt("Enter darkest secret");
-		phoneBook.add(DARKESTSECRET, input);
-		std::cout << "Afeter adding contact, actual id is = " << phoneBook.getId() << std::endl;
-	}
+	phoneBook.askForInputs(FIRSTNAME, "Enter the firstname");
+	phoneBook.askForInputs(LASTNAME, "Enter the lastname");
+	phoneBook.askForInputs(NICKNAME, "Enter the nickname");
+	phoneBook.askForInputs(PHONENUMBER, "Enter the phonenumber");
+	phoneBook.askForInputs(DARKESTSECRET, "Enter the darkest secret");
 }
 
 int	main(void)
 {
 	PhoneBook	phoneBook;
+	std::string	userOpt = "";
 
-	askForInputs(phoneBook);
+	std::cout << "Welcome to the PhoneBook!" << std::endl;
+	while (1)
+	{
+		std::cout << "You can choose from the following options: ADD, SEARCH, or EXIT : ";
+		std::getline(std::cin, userOpt);
+		if (std::cin.eof())
+			exit(0);
+		while (userOpt.empty())
+		{
+			std::cout << "Please, retry with not empty value. Choose one between ADD, SEARCH and EXIT : ";
+			std::getline(std::cin, userOpt);
+			if (std::cin.eof())
+				exit(0);
+		}
+		if (!userOpt.compare("ADD"))
+			addingProcess(phoneBook);
+		else if (!userOpt.compare("SEARCH"))
+			phoneBook.search();
+	}
 	return (0);
 }
