@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:13:44 by arabefam          #+#    #+#             */
-/*   Updated: 2025/02/20 13:44:56 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:40:25 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CONTACT_HPP
 
 # include <string>
-# include "Type.hpp"
 
 class	Contact
 {
@@ -24,15 +23,12 @@ class	Contact
 		std::string	nickname;
 		std::string	phoneNumber;
 		std::string	darkestSecret;
+		std::string	id;
 		bool		hasValue;
-		short		id;
 
-		Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds, bool hv, short i);
+		Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds, std::string i, bool hv);
 		Contact(void);
 		~Contact(void);
-		void		greeting(void) const;
 		static void		formatPrint(std::string str, bool isLast);
-	private:
-		bool	_getHasValue(void) const;
 };
 #endif

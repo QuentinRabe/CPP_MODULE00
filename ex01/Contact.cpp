@@ -15,18 +15,13 @@
 #include <iostream>
 #include <iomanip>
 
-Contact::Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds, bool hv, short i) :
-firstName(fn), lastName(ln), nickname(nn), phoneNumber(pn), darkestSecret(ds), hasValue(hv), id(i){}
+Contact::Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds, std::string i, bool hv) :
+firstName(fn), lastName(ln), nickname(nn), phoneNumber(pn), darkestSecret(ds), id(i), hasValue(hv){}
 
 Contact::Contact(void):
-firstName(""), lastName(""), nickname(""), phoneNumber("") , darkestSecret(""), hasValue(false){}
+firstName(""), lastName(""), nickname(""), phoneNumber("") , darkestSecret(""), id(""), hasValue(false){}
 
 Contact::~Contact(void)  {}
-
-void	Contact::greeting(void) const
-{
-	std::cout << "Hello world" << std::endl;
-}
 
 void	Contact::formatPrint(std::string str, bool isLast)
 {
@@ -38,10 +33,4 @@ void	Contact::formatPrint(std::string str, bool isLast)
 		std::cout << "|";
 	else
 	 	std::cout << std::endl;
-}
-
-
-bool	Contact::_getHasValue(void) const
-{
-	return this->hasValue;
 }

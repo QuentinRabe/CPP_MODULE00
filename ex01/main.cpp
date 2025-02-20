@@ -15,10 +15,10 @@
 
 static void	addingProcess(PhoneBook &phoneBook)
 {
-	phoneBook.askForInputs(FIRSTNAME, "Enter the firstname");
-	phoneBook.askForInputs(LASTNAME, "Enter the lastname");
+	phoneBook.askForInputs(FIRSTNAME, "Enter the first name");
+	phoneBook.askForInputs(LASTNAME, "Enter the last name");
 	phoneBook.askForInputs(NICKNAME, "Enter the nickname");
-	phoneBook.askForInputs(PHONENUMBER, "Enter the phonenumber");
+	phoneBook.askForInputs(PHONENUMBER, "Enter the phone number");
 	phoneBook.askForInputs(DARKESTSECRET, "Enter the darkest secret");
 }
 
@@ -41,10 +41,12 @@ int	main(void)
 			if (std::cin.eof())
 				exit(0);
 		}
-		if (!userOpt.compare("ADD"))
+		if (userOpt == "ADD")
 			addingProcess(phoneBook);
-		else if (!userOpt.compare("SEARCH"))
+		else if (userOpt == "SEARCH")
 			phoneBook.search();
+		else if (userOpt == "EXIT")
+			exit(0);
 	}
 	return (0);
 }
