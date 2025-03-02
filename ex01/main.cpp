@@ -43,6 +43,8 @@ int	main( void ) {
 			phoneBook.search();
 		else if (userOpt == "EXIT")
 			exit(0);
+		else
+			std::cout << "Sorry, " << userOpt << " is not an available command." << std::endl;
 	}
 	return (0);
 }
