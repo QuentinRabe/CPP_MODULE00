@@ -1,6 +1,6 @@
-NAME		=	megaphone
+NAME		=	account
 CXX			=	c++
-CXXFLAGS	=	-g
+CXXFLAGS	=	-Wall -Werror -Wextra
 SRCS		=	tests.cpp Account.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 

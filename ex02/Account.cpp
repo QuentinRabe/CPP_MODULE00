@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 10:04:05 by arabefam          #+#    #+#             */
-/*   Updated: 2025/03/02 11:16:52 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/03/02 11:37:15 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,29 @@ Account::Account( int initial_deposit ) : _amount(initial_deposit) {
 	std::cout << "index:" << _accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
 }
 
+Account::~Account( void ) {
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << this->_amount << ";closed" << std::endl;
+}
 
-Account::~Account( void ) {}
-
+bool	Account::makeWithdrawal( int withDrawal) {
+	if (this->checkAmount() < withDrawal) {
+		Account::_displayTimestamp();
+		std::cout << "index:" << this->_accountIndex << ";p_amount:" << this->_amount << ";withdrawl:refused" << std::endl;
+		return (false);
+	}
+	else {
+		Account::_displayTimestamp();
+		int	p_amount = this->_amount;
+		this->_amount -= withDrawal;
+		_totalAmount -= withDrawal;
+		this->_nbWithdrawals += 1;
+		_totalNbWithdrawals += 1;
+		std::cout << "index:" << this->_accountIndex << ";p_amount:" << p_amount\
+<< ";withdrawal:" << withDrawal << ";amount:" << this->_amount << ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+		return (true);
+	}
+}
 
 void	Account::makeDeposit( int deposit ) {
 	int	p_amount = this->_amount;
@@ -44,6 +64,10 @@ void	Account::makeDeposit( int deposit ) {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";p_amount:" << p_amount\
 << ";deposit:" << deposit << ";amount:" << this->_amount << ";nb_deposits:" << this->_nbDeposits << std::endl;
+}
+
+int	Account::checkAmount( void ) const {
+	return (this->_amount);
 }
 
 int	Account::getNbAccounts( void ) {
