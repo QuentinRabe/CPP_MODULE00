@@ -13,8 +13,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
-static void	addingProcess(PhoneBook &phoneBook)
-{
+static void	addingProcess( PhoneBook &phoneBook ) {
 	phoneBook.askForInputs(FIRSTNAME, "Enter the first name");
 	phoneBook.askForInputs(LASTNAME, "Enter the last name");
 	phoneBook.askForInputs(NICKNAME, "Enter the nickname");
@@ -22,20 +21,17 @@ static void	addingProcess(PhoneBook &phoneBook)
 	phoneBook.askForInputs(DARKESTSECRET, "Enter the darkest secret");
 }
 
-int	main(void)
-{
+int	main( void ) {
 	PhoneBook	phoneBook;
 	std::string	userOpt = "";
 
 	std::cout << "Welcome to the PhoneBook!" << std::endl;
-	while (1)
-	{
+	while (1) {
 		std::cout << "You can choose from the following options: ADD, SEARCH, or EXIT : ";
 		std::getline(std::cin, userOpt);
 		if (std::cin.eof())
 			exit(0);
-		while (userOpt.empty())
-		{
+		while (userOpt.empty()) {
 			std::cout << "Please, retry with not empty value. Choose one between ADD, SEARCH and EXIT : ";
 			std::getline(std::cin, userOpt);
 			if (std::cin.eof())

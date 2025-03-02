@@ -12,25 +12,11 @@
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <iostream>
-#include <iomanip>
 
-Contact::Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds, std::string i, bool hv) :
+Contact::Contact( std::string fn, std::string ln, std::string nn, std::string pn, std::string ds, std::string i, bool hv ) :
 firstName(fn), lastName(ln), nickname(nn), phoneNumber(pn), darkestSecret(ds), id(i), hasValue(hv){}
 
-Contact::Contact(void):
+Contact::Contact( void ):
 firstName(""), lastName(""), nickname(""), phoneNumber("") , darkestSecret(""), id(""), hasValue(false){}
 
-Contact::~Contact(void)  {}
-
-void	Contact::formatPrint(std::string str, bool isLast)
-{
-	if (str.length() > 10)
-		std::cout << std::setw(10) << str.substr(0, 9) + ".";
-	else
-		std::cout << std::setw(10) << std::left << str;
-	if (!isLast)
-		std::cout << "|";
-	else
-	 	std::cout << std::endl;
-}
+Contact::~Contact( void )  {}
