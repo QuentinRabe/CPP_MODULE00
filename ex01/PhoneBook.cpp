@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 08:26:48 by arabefam          #+#    #+#             */
-/*   Updated: 2025/03/02 11:53:01 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:09:16 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,25 @@ void	PhoneBook::formatPrint( std::string str, bool isLast ) {
 void	PhoneBook::_add( t_opt opt, std::string str ) {
 	if (this->_id >= 8)
 		this->_id = 0;
+	std::string	stringId = std::to_string(this->_id);
+
 	switch (opt) {
 		case FIRSTNAME :
-			this->_arr[this->_id].firstName = str;
+			this->_arr[this->_id].setStringAttribut(FIRSTNAME, str);
 			break;
 		case LASTNAME :
-			this->_arr[this->_id].lastName = str;
+			this->_arr[this->_id].setStringAttribut(LASTNAME, str);
 			break;
 		case NICKNAME :
-			this->_arr[this->_id].nickname = str;
+			this->_arr[this->_id].setStringAttribut(NICKNAME, str);
 			break;
 		case PHONENUMBER :
-			this->_arr[this->_id].phoneNumber = str;
+			this->_arr[this->_id].setStringAttribut(PHONENUMBER, str);
 			break;
 		case DARKESTSECRET :
-			this->_arr[this->_id].darkestSecret = str;
-			this->_arr[this->_id].id = std::to_string(this->_id);
-			this->_arr[this->_id].hasValue = true;
+			this->_arr[this->_id].setStringAttribut(DARKESTSECRET, str);
+			this->_arr[this->_id].setStringAttribut(ID, stringId);
+			this->_arr[this->_id].setHasValue(true);
 			this->_id += 1;
 			break;
 		default:
@@ -84,7 +86,7 @@ void	PhoneBook::search( void ) const {
 	std::string	input = "";
 	short		retry = 0;
 
-	if (!this->_arr[id].hasValue) {
+	if (!this->_arr[id].getHasValue()) {
 		std::cout << "No contact yet!" << std::endl;
 		return ;
 	}
@@ -92,11 +94,11 @@ void	PhoneBook::search( void ) const {
 	PhoneBook::formatPrint("First name", false);
 	PhoneBook::formatPrint("Last name", false);
 	PhoneBook::formatPrint("Nick name", true);
-	while (this->_arr[id].hasValue) {
-		PhoneBook::formatPrint(this->_arr[id].id, false);
-		PhoneBook::formatPrint(this->_arr[id].firstName, false);
-		PhoneBook::formatPrint(this->_arr[id].lastName, false);
-		PhoneBook::formatPrint(this->_arr[id].nickname, true);
+	while (this->_arr[id].getHasValue()) {
+		PhoneBook::formatPrint(this->_arr[id].getStringAttribut(ID), false);
+		PhoneBook::formatPrint(this->_arr[id].getStringAttribut(FIRSTNAME), false);
+		PhoneBook::formatPrint(this->_arr[id].getStringAttribut(LASTNAME), false);
+		PhoneBook::formatPrint(this->_arr[id].getStringAttribut(NICKNAME), true);
 		id++;
 	}
 	while (retry < 3) {
@@ -125,7 +127,7 @@ int	PhoneBook::_printGivenContactId(std::string id, short retry) const {
 	short	i = 0;
 	bool	isIdFound = false;
 
-	while (this->_arr[i].hasValue) {
+	while (this->_arr[i].getHasValue()) {
 		if (id == std::to_string(i)) {
 			isIdFound = true;
 			break ;
@@ -139,10 +141,10 @@ int	PhoneBook::_printGivenContactId(std::string id, short retry) const {
 		 	std::cout << "Sorry, you only allowed to retry 3 times!" << std::endl;
 		return (1);
 	}
-	std::cout << "First name : " << this->_arr[i].firstName << std::endl;
-	std::cout << "Last name : " << this->_arr[i].lastName << std::endl;
-	std::cout << "Nick name : " << this->_arr[i].nickname << std::endl;
-	std::cout << "Phone number : " << this->_arr[i].phoneNumber << std::endl;
-	std::cout << "Darkest secret : " << this->_arr[i].darkestSecret << std::endl;
+	std::cout << "First name : " << this->_arr[i].getStringAttribut(FIRSTNAME) << std::endl;
+	std::cout << "Last name : " << this->_arr[i].getStringAttribut(LASTNAME) << std::endl;
+	std::cout << "Nick name : " << this->_arr[i].getStringAttribut(NICKNAME) << std::endl;
+	std::cout << "Phone number : " << this->_arr[i].getStringAttribut(PHONENUMBER) << std::endl;
+	std::cout << "Darkest secret : " << this->_arr[i].getStringAttribut(DARKESTSECRET) << std::endl;
 	return (0);
 }

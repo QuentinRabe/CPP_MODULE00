@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 21:29:52 by arabefam          #+#    #+#             */
-/*   Updated: 2025/03/02 11:50:25 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:57:05 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ enum e_opt {
 	LASTNAME,
 	NICKNAME,
 	PHONENUMBER,
-	DARKESTSECRET
+	DARKESTSECRET,
+	ID,
 };
 
 typedef enum e_opt	t_opt;
