@@ -12,6 +12,7 @@
 
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <cstdlib>
 
 static void	addingProcess( PhoneBook &phoneBook ) {
 	phoneBook.askForInputs(FIRSTNAME, "Enter the first name");
@@ -30,19 +31,19 @@ int	main( void ) {
 		std::cout << "You can choose from the following options: ADD, SEARCH, or EXIT : ";
 		std::getline(std::cin, userOpt);
 		if (std::cin.eof())
-			exit(0);
+			std::exit(0);
 		while (userOpt.empty()) {
 			std::cout << "Please, retry with not empty value. Choose one between ADD, SEARCH and EXIT : ";
 			std::getline(std::cin, userOpt);
 			if (std::cin.eof())
-				exit(0);
+				std::exit(0);
 		}
 		if (userOpt == "ADD")
 			addingProcess(phoneBook);
 		else if (userOpt == "SEARCH")
 			phoneBook.search();
 		else if (userOpt == "EXIT")
-			exit(0);
+			std::exit(0);
 		else
 			std::cout << "Sorry, " << userOpt << " is not an available command." << std::endl;
 	}

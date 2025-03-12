@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 10:04:05 by arabefam          #+#    #+#             */
-/*   Updated: 2025/03/02 11:37:15 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:10:04 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	Account::displayAccountsInfos( void ) {
 }
 
 void	Account::_displayTimestamp( void ) {
-	std::time_t	timeNow = std::time(nullptr);
+	std::time_t	timeNow = std::time(NULL);
 	std::tm	*localTime = std::localtime(&timeNow);
 	std::cout << "[" << 1900 + localTime->tm_year\
 << std::setw(2) << std::setfill('0') << 1 + localTime->tm_mon\

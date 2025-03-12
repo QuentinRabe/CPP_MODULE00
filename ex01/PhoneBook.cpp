@@ -6,7 +6,7 @@
 /*   By: arabefam <arabefam@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 08:26:48 by arabefam          #+#    #+#             */
-/*   Updated: 2025/03/04 17:09:16 by arabefam         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:03:46 by arabefam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #include "Contact.hpp"
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <iomanip>
+#include <cstdlib>
 
 PhoneBook::PhoneBook( void ): _id(0) {}
 
@@ -34,8 +36,9 @@ void	PhoneBook::formatPrint( std::string str, bool isLast ) {
 void	PhoneBook::_add( t_opt opt, std::string str ) {
 	if (this->_id >= 8)
 		this->_id = 0;
-	std::string	stringId = std::to_string(this->_id);
-
+	std::stringstream	ss;
+	ss << this->_id;
+	std::string	stringId = ss.str();
 	switch (opt) {
 		case FIRSTNAME :
 			this->_arr[this->_id].setStringAttribut(FIRSTNAME, str);
@@ -72,7 +75,7 @@ void	PhoneBook::askForInputs( t_opt opt, std::string msg ) {
 		std::cout << msg << " ";
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-			exit(0);
+			std::exit(0);
 	}
 	_add(opt, input);
 }
@@ -105,13 +108,13 @@ void	PhoneBook::search( void ) const {
 		std::cout << "Enter an index : ";
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-			exit(0);
+			std::exit(0);
 		while (input.empty()) {
 			std::cout << "Please, retry with not empty value." << std::endl;
 			std::cout << "Enter an index : ";
 			std::getline(std::cin, input);
 			if (std::cin.eof())
-				exit(0);
+				std::exit(0);
 		}
 		if (_printGivenContactId(input, retry)) {
 			retry++;
@@ -126,9 +129,11 @@ void	PhoneBook::search( void ) const {
 int	PhoneBook::_printGivenContactId(std::string id, short retry) const {
 	short	i = 0;
 	bool	isIdFound = false;
-
 	while (this->_arr[i].getHasValue()) {
-		if (id == std::to_string(i)) {
+		std::stringstream	ss;
+		ss << i;
+		std::string	stringIndex = ss.str();
+		if (id == stringIndex) {
 			isIdFound = true;
 			break ;
 		}
